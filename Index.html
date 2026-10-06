@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>I Miei Volantini</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --accent: #38bdf8;
+      --text: #f8fafc;
+      --subtext: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); padding: 16px; padding-bottom: 30px; }
+    header { margin-bottom: 20px; text-align: center; }
+    h1 { font-size: 1.5rem; font-weight: 700; color: #fff; }
+    p.subtitle { font-size: 0.85rem; color: var(--subtext); margin-top: 4px; }
+    
+    .filter-container { margin-bottom: 20px; text-align: center; }
+    .filter-select {
+      width: 100%;
+      max-width: 320px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background-color: var(--card-bg);
+      color: var(--text);
+      border: 1px solid #334155;
+      font-size: 0.95rem;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px;
+    }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+    .card { background: var(--card-bg); border-radius: 12px; padding: 14px; border: 1px solid #334155; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: inherit; transition: transform 0.1s ease; }
+    .card:active { transform: scale(0.97); }
+    .brand { font-size: 0.75rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
+    .brand.euronics { color: #60a5fa; }
+    .brand.trony { color: #f87171; }
+    .brand.expert { color: #fbbf24; }
+    .brand.mediaworld { color: #ef4444; }
+    .brand.unieuro { color: #fb923c; }
+    .group-name { font-size: 1.1rem; font-weight: 600; margin: 6px 0 12px 0; }
+    .btn { background: #38bdf8; color: #0f172a; text-align: center; padding: 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; display: block; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>I Miei Volantini</h1>
+    <p class="subtitle">Aggregatore Personale</p>
+  </header>
+
+  <!-- Menù a tendina per selezione catena -->
+  <div class="filter-container">
+    <select class="filter-select" id="catena-select" onchange="filterList(this.value)">
+      <option value="all">Tutti i volantini</option>
+      <option value="euronics">Euronics</option>
+      <option value="trony">Trony</option>
+      <option value="expert">Expert</option>
+      <option value="mediaworld">MediaWorld</option>
+      <option value="unieuro">Unieuro</option>
+    </select>
+  </div>
+
+  <!-- Lista Volantini -->
+  <div class="grid" id="volantini-grid">
+    
+    <!-- Euronics Tufano -->
+    <a href="https://www.tufano.store/volantino" target="_blank" rel="noopener" class="card euronics">
+      <div>
+        <span class="brand euronics">Euronics</span>
+        <div class="group-name">Tufano</div>
+      </div>
+      <div class="btn">Apri Volantino ↗</div>
+    </a>
+
+    <!-- Euronics Gruppo Nova -->
+    <a href="https://www.grupponova.it/volantino/" target="_blank" rel="noopener" class="card euronics">
+      <div>
+        <span class="brand euronics">Euronics</span>
+        <div class="group-name">Gruppo Nova</div>
+      </div>
+      <div class="btn">Apri Volantino ↗</div>
+    </a>
+
+    <!-- Euronics CDS / Butali -->
+    <a href="https://butali.it/euronicscds/" target="_blank" rel="noopener" class="card euronics">
+      <div>
+        <span class="brand euronics">Euronics</span>
+        <div class="group-name">CDS / Butali</div>
+      </div>
+      <div class="btn">Apri Volantino ↗</div>
+    </a>
+
+    <!-- Euronics SIEM -->
+    <a href="https://www.euronics.it/volantiniSocio?partnerId=29" target="_blank" rel="noopener" class="card euronics">
+      <div>
+        <span class="brand euronics">Euronics</span>
+        <div class="group-name">SIEM</div>
+      </div>
+      <div class="btn">Apri Volantino ↗</div>
+    </a>
+
+    <!-- Euronics BRUNO -->
+    <a href="https://www.euronics.it/volantiniSocio?partnerId=71" target="_blank" rel="noopener" class="card euronics">
+      <div>
+        <span class="brand euronics">Euronics</span>
+        <div class="group-name">BRUNO</div>
+      </div>
+      <div class="btn">Apri Volantino ↗</div>
+    </a>
+
+    <!-- Euronics COMET -->
+    <a href="https://www.comet.it/volantino-bis" target="_blank" rel="noopener" class="card euronics">
+      <div>
+        <span class="brand euronics">Euronics</span>
+        <div class="group-name">COMET</div>
+      </div>
+      <div class="btn">Apri Volantino ↗</div>
+    </a>
+
+    <!-- Euronics La Via Lattea -->
+    <a href="https://www.lavialattea.it/volantino/" target="_blank" rel="noopener" class="card euronics">
+      <div>
+        <span class="brand euronics">Euronics</span>
+        <div class="group-name">La Via Lattea</div>
+      </div>
+      <div class="btn">Apri Volantino ↗</div>
+    </a>
+
+    <!-- Euronics DIMO -->
+    <a href="https://www.euronics.it/store?storeId=8058669661904" target="_blank" rel="noopener" class="card euronics">
+      <div>
+        <span class="brand euronics">Euronics</span>
+        <div class="group-name">DIMO</div>
+      </div>
+      <div class="btn">Apri Volantino ↗</div>
+    </a>
+
+    <!-- Euronics Rimep -->
+    <a href="https://www.euronics.it/store?storeId=8033695243812" target="_blank" rel="noopener" class="card euronics">
+      <div>
+        <span class="brand euronics">Euronics</span>
+        <div class="group-name">Rimep</div>
+      </div>
+      <div class="btn">Apri Volantino ↗</div>
+    </a>
+
+    <!-- Trony DML -->
+    <a href="https://www.dmlstore.it/volantino-trony" target="_blank" rel="noopener" class="card trony">
+      <div>
+        <span class="brand trony">Trony</span>
+        <div class="group-name">DML</div>
+      </div>
+      <div class="btn">Apri Volantino ↗</div>
+    </a>
+
+    <!-- Trony Falco -->
+    <a href="https://www.trony.it/formia-tro187/" target="_blank" rel="noopener" class="card trony">
+      <div>
+        <span class="brand trony">Trony</span>
+        <div class="group-name">Falco</div>
+      </div>
+      <div class="btn">Apri Volantino ↗</div>
+    </a>
+
+    <!-- Expert Gaer -->
+    <a href="https://www.calameo.com/accounts/5118864" target="_blank" rel="noopener" class="card expert">
+      <div>
+        <span class="brand expert">Expert</span>
+        <div class="group-name">Gaer</div>
+      </div>
+      <div class="btn">Apri Volantino ↗</div>
+    </a>
+
+    <!-- Expert DG Group -->
+    <a href="https://www.domex.it/" target="_blank" rel="noopener" class="card expert">
+      <div>
+        <span class="brand expert">Expert</span>
+        <div class="group-name">DG Group</div>
+      </div>
+      <div class="btn">Apri Volantino ↗</div>
+    </a>
+
+    <!-- Expert Mallardo -->
+    <a href="https://mallardoexpert.it/volantino/" target="_blank" rel="noopener" class="card expert">
+      <div>
+        <span class="brand expert">Expert</span>
+        <div class="group-name">Mallardo</div>
+      </div>
+      <div class="btn">Apri Volantino ↗</div>
+    </a>
+
+    <!-- MediaWorld -->
+    <a href="https://www.mediaworld.it/it/campaign/volantino" target="_blank" rel="noopener" class="card mediaworld">
+      <div>
+        <span class="brand mediaworld">MediaWorld</span>
+        <div class="group-name">Nazionale</div>
+      </div>
+      <div class="btn">Apri Volantino ↗</div>
+    </a>
+
+    <!-- Unieuro -->
+    <a href="https://www.unieuro.it/online/volantino" target="_blank" rel="noopener" class="card unieuro">
+      <div>
+        <span class="brand unieuro">Unieuro</span>
+        <div class="group-name">Nazionale</div>
+      </div>
+      <div class="btn">Apri Volantino ↗</div>
+    </a>
+
+  </div>
+
+  <script>
+    function filterList(category) {
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
